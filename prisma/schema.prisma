@@ -91,8 +91,9 @@ model Gift {
   id               String    @id @default(cuid())
   treeId           String    @map("tree_id")
   fromUserId       String?   @map("from_user_id")
-  senderName       String?   @map("sender_name") // For anonymous senders
+  senderName       String?   @map("sender_name")
   encryptedContent String    @map("encrypted_content") @db.Text
+  encryptedImage   String?   @map("encrypted_image") @db.Text // Base64 encrypted image
   giftType         GiftType  @map("gift_type")
   encryptionHint   String?   @map("encryption_hint")
   position         Json      @default("{\"x\":0,\"y\":0,\"z\":0}")

@@ -59,10 +59,15 @@ export async function POST(req: NextRequest) {
     }
 
     // Encrypt gift content
-    const encrypted = encryptGift(
+    const encryptedContent = encryptGift(
       JSON.stringify(validated.content),
       validated.password
     )
+
+    // Encrypt image if provided
+    const encryptedImage = validated.imageBase64
+      ? encryptGift(validated.imageBase64, validated.password)
+      : null
 
     // Create gift
     const gift = await prisma.gift.create({
@@ -70,7 +75,8 @@ export async function POST(req: NextRequest) {
         treeId: tree.id,
         fromUserId: session.user.id,
         senderName: validated.senderName,
-        encryptedContent: encrypted,
+        encryptedContent,
+        encryptedImage,
         giftType: validated.giftType,
         encryptionHint: validated.hint,
       },

@@ -1,6 +1,9 @@
-import { defineConfig } from '@prisma/client'
+// Prisma 7 configuration
+// Connection URLs are now defined here instead of schema.prisma
 
-export default defineConfig({
-  adapter: process.env.DIRECT_URL!,
-  migrateUrl: process.env.DATABASE_URL!,
-})
+export default {
+  datasource: {
+    url: process.env.DATABASE_URL!,
+    directUrl: process.env.DIRECT_URL,
+  },
+}

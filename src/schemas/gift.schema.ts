@@ -13,6 +13,7 @@ export const sendGiftSchema = z.object({
   password: z.string().min(6, 'Password must be at least 6 characters'),
   hint: z.string().optional(),
   senderName: z.string().optional(),
+  imageBase64: z.string().optional(), // Base64 encoded image (optional)
 })
 
 export const openGiftSchema = z.object({

@@ -6,6 +6,7 @@
 
 - **Albero 3D Interattivo** - Renderizzato con Three.js/React Three Fiber
 - **Regali Crittografati** - Privacy garantita con AES-256
+- **Foto Crittografate** - Allega immagini ai regali (crittografate end-to-end)
 - **OAuth2 Authentication** - Login con Google/GitHub
 - **PWA Ready** - Installabile come app nativa
 - **Multilingua** - Italiano + English (i18n)
@@ -15,20 +16,21 @@
 
 - **Frontend**: Next.js 15 (App Router), React 19, TypeScript
 - **3D Engine**: Three.js + React Three Fiber
-- **Database**: Supabase PostgreSQL + Prisma ORM
+- **Database**: Supabase PostgreSQL + **Prisma 7** ORM
 - **Auth**: NextAuth v5 (Google, GitHub OAuth)
 - **UI**: Tailwind CSS + shadcn/ui
 - **Forms**: React Hook Form + Zod
 - **State**: TanStack Query
 - **i18n**: next-intl
 - **PWA**: @ducanh2912/next-pwa
+- **Package Manager**: pnpm
 
 ## 🚀 Quick Start
 
 ### Prerequisites
 
 - Node.js 18+
-- pnpm/npm/yarn
+- **pnpm** (Package Manager)
 - Supabase account (free tier)
 - Google/GitHub OAuth apps
 
@@ -39,18 +41,18 @@
 git clone https://github.com/MicheleJohn/christmas-tree-pwa.git
 cd christmas-tree-pwa
 
-# Install dependencies
-npm install
+# Install dependencies with pnpm
+pnpm install
 
 # Setup environment
 cp .env.example .env
 # Edit .env with your credentials
 
-# Setup database
-npm run db:push
+# Setup database (Prisma 7)
+pnpm db:push
 
 # Run development server
-npm run dev
+pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000)
@@ -60,12 +62,12 @@ Open [http://localhost:3000](http://localhost:3000)
 1. Create Supabase project at [supabase.com](https://supabase.com)
 2. Get connection strings from Settings > Database
 3. Add to `.env`:
-   - `DATABASE_URL` (pooled connection)
-   - `DIRECT_URL` (direct connection)
+   - `DATABASE_URL` (pooled connection - port 6543)
+   - `DIRECT_URL` (direct connection - port 5432)
 4. Run migrations:
 
 ```bash
-npm run db:push
+pnpm db:push
 ```
 
 ## 🔐 OAuth Setup
@@ -92,6 +94,14 @@ Supported languages:
 
 Add translations in `src/i18n/locales/{locale}.json`
 
+## 📸 Encrypted Gift Images
+
+Regali possono includere foto crittografate:
+- Upload immagine nel form
+- Conversione automatica in base64
+- Crittografia AES-256 (come per il testo)
+- Solo il destinatario con password corretta può vedere l'immagine
+
 ## 📝 Project Structure
 
 ```
@@ -110,11 +120,15 @@ src/
 ├── schemas/             # Zod schemas
 ├── i18n/                # Translations
 └── types/               # TypeScript types
+
+prisma/
+├── schema.prisma        # Database schema
+└── prisma.config.ts     # Prisma 7 config (NEW)
 ```
 
 ## 🔒 Security Features
 
-- **End-to-End Encryption** - Gifts encrypted client-side before DB storage
+- **End-to-End Encryption** - Gifts + images encrypted client-side
 - **Row Level Security** - Supabase RLS policies
 - **OAuth2 Only** - No password storage
 - **HTTPS Required** - Automatic on Vercel
@@ -122,16 +136,16 @@ src/
 ## 💻 Development Commands
 
 ```bash
-npm run dev          # Start dev server
-npm run build        # Build for production
-npm run start        # Start production server
-npm run lint         # Run ESLint
+pnpm dev          # Start dev server
+pnpm build        # Build for production
+pnpm start        # Start production server
+pnpm lint         # Run ESLint
 
-# Database
-npm run db:push      # Push schema changes
-npm run db:studio    # Open Prisma Studio
-npm run db:migrate   # Create migration
-npm run db:reset     # Reset database
+# Database (Prisma 7)
+pnpm db:push      # Push schema changes
+pnpm db:studio    # Open Prisma Studio
+pnpm db:migrate   # Create migration
+pnpm db:reset     # Reset database (ATTENZIONE!)
 ```
 
 ## 🚀 Deployment

@@ -33,10 +33,16 @@ export async function POST(
     }
 
     // Decrypt content
-    const decrypted = decryptGift(gift.encryptedContent, password)
+    const decryptedContent = decryptGift(gift.encryptedContent, password)
 
-    if (!decrypted) {
+    if (!decryptedContent) {
       return NextResponse.json({ error: 'Invalid password' }, { status: 401 })
+    }
+
+    // Decrypt image if present
+    let decryptedImage: string | null = null
+    if (gift.encryptedImage) {
+      decryptedImage = decryptGift(gift.encryptedImage, password)
     }
 
     // Mark as opened
@@ -50,7 +56,8 @@ export async function POST(
 
     return NextResponse.json({
       success: true,
-      content: JSON.parse(decrypted),
+      content: JSON.parse(decryptedContent),
+      image: decryptedImage, // Base64 string or null
       from: gift.senderName || gift.from?.name || 'Anonymous',
     })
   } catch (error) {

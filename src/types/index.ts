@@ -24,6 +24,7 @@ export type GiftContent = {
 export type DecryptedGift = {
   id: string
   content: GiftContent
+  image?: string // Base64 encoded image
   type: 'VOUCHER' | 'SUBSCRIPTION' | 'PHYSICAL' | 'MESSAGE' | 'EXPERIENCE'
   from?: string
   openedAt?: Date
