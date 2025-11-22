@@ -1,0 +1,119 @@
+{
+  "common": {
+    "appName": "Christmas Tree",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close"
+  },
+  "auth": {
+    "signIn": "Sign In",
+    "signOut": "Sign Out",
+    "signInWith": "Sign in with {provider}",
+    "welcome": "Welcome!",
+    "welcomeBack": "Welcome back, {name}!",
+    "loginRequired": "Login Required",
+    "loginDescription": "Sign in to create your virtual Christmas tree and receive gifts"
+  },
+  "tree": {
+    "title": "My Tree",
+    "createTree": "Create Your Tree",
+    "treeName": "Tree Name",
+    "theme": "Theme",
+    "themes": {
+      "classic": "Classic",
+      "modern": "Modern",
+      "winter": "Winter"
+    },
+    "decorations": "Decorations",
+    "noDecorations": "No decorations unlocked",
+    "unlockDecorations": "Complete mini-games to unlock new decorations!"
+  },
+  "gifts": {
+    "title": "Gifts",
+    "sendGift": "Send Gift",
+    "openGift": "Open Gift",
+    "noGifts": "No gifts under the tree",
+    "waitingForGifts": "Share your tree to receive gifts!",
+    "from": "From: {sender}",
+    "anonymous": "Anonymous",
+    "opened": "Opened on {date}",
+    "unopened": "Unopened",
+    "types": {
+      "VOUCHER": "Voucher",
+      "SUBSCRIPTION": "Subscription",
+      "PHYSICAL": "Physical Gift",
+      "MESSAGE": "Message",
+      "EXPERIENCE": "Experience"
+    },
+    "form": {
+      "recipientEmail": "Recipient Email",
+      "recipientEmailPlaceholder": "friend@example.com",
+      "giftType": "Gift Type",
+      "selectType": "Select a type",
+      "title": "Gift Title",
+      "titlePlaceholder": "e.g. Amazon Gift Card $50",
+      "description": "Description",
+      "descriptionPlaceholder": "Add gift details...",
+      "code": "Code/Voucher",
+      "codePlaceholder": "XXXX-XXXX-XXXX",
+      "address": "Delivery Address",
+      "addressPlaceholder": "Street, city, ZIP",
+      "password": "Password to Open",
+      "passwordPlaceholder": "Choose a secure password",
+      "passwordHint": "Only the recipient with this password can open the gift",
+      "hint": "Password Hint (optional)",
+      "hintPlaceholder": "e.g. Your birthday",
+      "senderName": "Sender Name (optional)",
+      "senderNamePlaceholder": "Leave empty for anonymous",
+      "sending": "Sending...",
+      "send": "Send Gift 🎁"
+    },
+    "open": {
+      "enterPassword": "Enter Password",
+      "passwordPlaceholder": "Gift password",
+      "hint": "Hint: {hint}",
+      "wrongPassword": "Wrong password",
+      "opening": "Opening...",
+      "open": "Open Gift 🎁"
+    },
+    "success": {
+      "sent": "Gift sent successfully! 🎁",
+      "opened": "Gift opened! 🎉"
+    },
+    "errors": {
+      "sendFailed": "Failed to send gift",
+      "openFailed": "Failed to open gift",
+      "recipientNotFound": "Recipient not found",
+      "invalidPassword": "Invalid password"
+    }
+  },
+  "decorations": {
+    "title": "Decorations",
+    "unlocked": "Unlocked Decorations",
+    "locked": "Locked Decorations",
+    "unlockBy": "Unlock by completing: {game}",
+    "types": {
+      "ball": "Ball",
+      "star": "Star",
+      "lights": "Lights",
+      "garland": "Garland",
+      "bow": "Bow"
+    }
+  },
+  "navigation": {
+    "home": "Home",
+    "myTree": "My Tree",
+    "gifts": "Gifts",
+    "decorations": "Decorations",
+    "games": "Mini-games"
+  },
+  "footer": {
+    "madeWith": "Made with ❤️ for Christmas 2025"
+  }
+}

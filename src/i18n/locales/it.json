@@ -1,0 +1,119 @@
+{
+  "common": {
+    "appName": "Albero di Natale",
+    "loading": "Caricamento...",
+    "error": "Errore",
+    "success": "Successo",
+    "cancel": "Annulla",
+    "confirm": "Conferma",
+    "save": "Salva",
+    "delete": "Elimina",
+    "edit": "Modifica",
+    "close": "Chiudi"
+  },
+  "auth": {
+    "signIn": "Accedi",
+    "signOut": "Esci",
+    "signInWith": "Accedi con {provider}",
+    "welcome": "Benvenuto!",
+    "welcomeBack": "Ben tornato, {name}!",
+    "loginRequired": "Devi effettuare l'accesso",
+    "loginDescription": "Accedi per creare il tuo albero di Natale virtuale e ricevere regali"
+  },
+  "tree": {
+    "title": "Il Mio Albero",
+    "createTree": "Crea il Tuo Albero",
+    "treeName": "Nome dell'Albero",
+    "theme": "Tema",
+    "themes": {
+      "classic": "Classico",
+      "modern": "Moderno",
+      "winter": "Inverno"
+    },
+    "decorations": "Decorazioni",
+    "noDecorations": "Nessuna decorazione sbloccata",
+    "unlockDecorations": "Completa i minigiochi per sbloccare nuove decorazioni!"
+  },
+  "gifts": {
+    "title": "Regali",
+    "sendGift": "Invia Regalo",
+    "openGift": "Apri Regalo",
+    "noGifts": "Nessun regalo sotto l'albero",
+    "waitingForGifts": "Condividi il tuo albero per ricevere regali!",
+    "from": "Da: {sender}",
+    "anonymous": "Anonimo",
+    "opened": "Aperto il {date}",
+    "unopened": "Non aperto",
+    "types": {
+      "VOUCHER": "Voucher",
+      "SUBSCRIPTION": "Abbonamento",
+      "PHYSICAL": "Regalo Fisico",
+      "MESSAGE": "Messaggio",
+      "EXPERIENCE": "Esperienza"
+    },
+    "form": {
+      "recipientEmail": "Email Destinatario",
+      "recipientEmailPlaceholder": "amico@esempio.it",
+      "giftType": "Tipo di Regalo",
+      "selectType": "Seleziona un tipo",
+      "title": "Titolo Regalo",
+      "titlePlaceholder": "es. Buono Amazon 50€",
+      "description": "Descrizione",
+      "descriptionPlaceholder": "Aggiungi dettagli sul regalo...",
+      "code": "Codice/Voucher",
+      "codePlaceholder": "XXXX-XXXX-XXXX",
+      "address": "Indirizzo di Consegna",
+      "addressPlaceholder": "Via, città, CAP",
+      "password": "Password per Aprire",
+      "passwordPlaceholder": "Scegli una password sicura",
+      "passwordHint": "Solo il destinatario con questa password potrà aprire il regalo",
+      "hint": "Suggerimento Password (opzionale)",
+      "hintPlaceholder": "es. Il tuo compleanno",
+      "senderName": "Nome Mittente (opzionale)",
+      "senderNamePlaceholder": "Lascia vuoto per anonimo",
+      "sending": "Invio in corso...",
+      "send": "Invia Regalo 🎁"
+    },
+    "open": {
+      "enterPassword": "Inserisci la Password",
+      "passwordPlaceholder": "Password del regalo",
+      "hint": "Suggerimento: {hint}",
+      "wrongPassword": "Password errata",
+      "opening": "Apertura...",
+      "open": "Apri Regalo 🎁"
+    },
+    "success": {
+      "sent": "Regalo inviato con successo! 🎁",
+      "opened": "Regalo aperto! 🎉"
+    },
+    "errors": {
+      "sendFailed": "Errore durante l'invio del regalo",
+      "openFailed": "Errore durante l'apertura del regalo",
+      "recipientNotFound": "Destinatario non trovato",
+      "invalidPassword": "Password non valida"
+    }
+  },
+  "decorations": {
+    "title": "Decorazioni",
+    "unlocked": "Decorazioni Sbloccate",
+    "locked": "Decorazioni Bloccate",
+    "unlockBy": "Sblocca completando: {game}",
+    "types": {
+      "ball": "Pallina",
+      "star": "Stella",
+      "lights": "Luci",
+      "garland": "Ghirlanda",
+      "bow": "Fiocco"
+    }
+  },
+  "navigation": {
+    "home": "Home",
+    "myTree": "Il Mio Albero",
+    "gifts": "Regali",
+    "decorations": "Decorazioni",
+    "games": "Minigiochi"
+  },
+  "footer": {
+    "madeWith": "Fatto con ❤️ per Natale 2025"
+  }
+}
