@@ -1,9 +1,14 @@
-// Prisma 7 Configuration
-// Connection URLs are now defined here instead of schema.prisma
+import "dotenv/config"
+import { defineConfig, env } from "prisma/config"
 
-export default {
-  datasource: {
-    url: process.env.DATABASE_URL!,
-    directUrl: process.env.DIRECT_URL,
+export default defineConfig({
+  schema: "prisma/schema.prisma",
+  migrations: {
+    path: "prisma/migrations",
   },
-}
+  engine: "classic",
+  datasource: {
+    url: env("DATABASE_URL"),
+    directUrl: env("DIRECT_URL"),
+  },
+})
