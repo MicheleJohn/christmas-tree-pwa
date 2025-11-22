@@ -24,12 +24,13 @@
 - **i18n**: next-intl
 - **PWA**: @ducanh2912/next-pwa
 - **Package Manager**: pnpm
+- **Node Version Manager**: Volta
 
 ## 🚀 Quick Start
 
 ### Prerequisites
 
-- Node.js 18+
+- **Node.js 24+** (or 22.12+, 20.19+) managed with **Volta**
 - **pnpm** (Package Manager)
 - Supabase account (free tier)
 - Google/GitHub OAuth apps
@@ -40,6 +41,12 @@
 # Clone repository
 git clone https://github.com/MicheleJohn/christmas-tree-pwa.git
 cd christmas-tree-pwa
+
+# Node version is pinned via Volta (check package.json)
+# Make sure Volta is configured:
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+export VOLTA_FEATURE_PNPM=1
 
 # Install dependencies with pnpm
 pnpm install
@@ -56,6 +63,30 @@ pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000)
+
+## ⚙️ Prisma 7 Configuration
+
+**Important:** Prisma 7 has a new configuration system:
+
+- ❌ **OLD** (Prisma 6): `url` and `directUrl` in `schema.prisma`
+- ✅ **NEW** (Prisma 7): Connection URLs in `prisma/prisma.config.ts`
+
+The schema file (`prisma/schema.prisma`) now only contains:
+```prisma
+datasource db {
+  provider = "postgresql"
+}
+```
+
+Connection URLs are defined in `prisma/prisma.config.ts`:
+```typescript
+export default {
+  datasource: {
+    url: process.env.DATABASE_URL!,
+    directUrl: process.env.DIRECT_URL,
+  },
+}
+```
 
 ## 📦 Database Setup
 
@@ -122,8 +153,8 @@ src/
 └── types/               # TypeScript types
 
 prisma/
-├── schema.prisma        # Database schema
-└── prisma.config.ts     # Prisma 7 config (NEW)
+├── schema.prisma        # Database schema (Prisma 7)
+└── prisma.config.ts     # Connection config (NEW in Prisma 7)
 ```
 
 ## 🔒 Security Features
@@ -148,6 +179,29 @@ pnpm db:migrate   # Create migration
 pnpm db:reset     # Reset database (ATTENZIONE!)
 ```
 
+## 🐛 Troubleshooting
+
+### Prisma 7 + pnpm + Volta
+
+If you get ESM/CommonJS errors during `pnpm install`:
+
+1. Make sure you're using Node 24+ (or 22.12+, 20.19+)
+2. Add to your `.bashrc` or `.zshrc`:
+```bash
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+export VOLTA_FEATURE_PNPM=1  # Important!
+```
+3. Reload shell: `source ~/.bashrc`
+4. Verify: `pnpm node -v` should match `node -v`
+
+### If still having issues:
+```bash
+rm -rf node_modules pnpm-lock.yaml
+pnpm install --ignore-scripts
+pnpm exec prisma generate
+```
+
 ## 🚀 Deployment
 
 ### Vercel (Recommended)
@@ -163,7 +217,7 @@ pnpm db:reset     # Reset database (ATTENZIONE!)
 
 Ensure all `.env.example` variables are set in Vercel dashboard.
 
-## 📝 License
+## 📄 License
 
 MIT License - see [LICENSE](LICENSE) file
 

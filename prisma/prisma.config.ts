@@ -1,4 +1,4 @@
-// Prisma 7 configuration
+// Prisma 7 Configuration
 // Connection URLs are now defined here instead of schema.prisma
 
 export default {
