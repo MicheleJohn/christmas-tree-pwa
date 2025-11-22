@@ -4,7 +4,7 @@ const globalForPrisma = globalThis as unknown as {
   prisma: PrismaClient | undefined
 }
 
-// Prisma 7: Connection URLs are now read from prisma/prisma.config.ts
+// Prisma 6: Standard configuration
 export const prisma =
   globalForPrisma.prisma ??
   new PrismaClient({
