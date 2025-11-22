@@ -1,2 +1,168 @@
-# christmas-tree-pwa
-🎄 PWA Albero di Natale 3D - Ricevi regali virtuali crittografati con OAuth2, Three.js e Next.js 15
+# 🎄 Christmas Tree PWA
+
+> Albero di Natale 3D virtuale con regali crittografati end-to-end
+
+## ✨ Features
+
+- **Albero 3D Interattivo** - Renderizzato con Three.js/React Three Fiber
+- **Regali Crittografati** - Privacy garantita con AES-256
+- **OAuth2 Authentication** - Login con Google/GitHub
+- **PWA Ready** - Installabile come app nativa
+- **Multilingua** - Italiano + English (i18n)
+- **Decorazioni Sbloccabili** - Minigiochi natalizi (coming soon)
+
+## 🛠️ Tech Stack
+
+- **Frontend**: Next.js 15 (App Router), React 19, TypeScript
+- **3D Engine**: Three.js + React Three Fiber
+- **Database**: Supabase PostgreSQL + Prisma ORM
+- **Auth**: NextAuth v5 (Google, GitHub OAuth)
+- **UI**: Tailwind CSS + shadcn/ui
+- **Forms**: React Hook Form + Zod
+- **State**: TanStack Query
+- **i18n**: next-intl
+- **PWA**: @ducanh2912/next-pwa
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- Node.js 18+
+- pnpm/npm/yarn
+- Supabase account (free tier)
+- Google/GitHub OAuth apps
+
+### Installation
+
+```bash
+# Clone repository
+git clone https://github.com/MicheleJohn/christmas-tree-pwa.git
+cd christmas-tree-pwa
+
+# Install dependencies
+npm install
+
+# Setup environment
+cp .env.example .env
+# Edit .env with your credentials
+
+# Setup database
+npm run db:push
+
+# Run development server
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000)
+
+## 📦 Database Setup
+
+1. Create Supabase project at [supabase.com](https://supabase.com)
+2. Get connection strings from Settings > Database
+3. Add to `.env`:
+   - `DATABASE_URL` (pooled connection)
+   - `DIRECT_URL` (direct connection)
+4. Run migrations:
+
+```bash
+npm run db:push
+```
+
+## 🔐 OAuth Setup
+
+### Google OAuth
+
+1. Go to [Google Cloud Console](https://console.cloud.google.com/apis/credentials)
+2. Create OAuth 2.0 Client ID
+3. Add authorized redirect: `http://localhost:3000/api/auth/callback/google`
+4. Add credentials to `.env`
+
+### GitHub OAuth
+
+1. Go to [GitHub Developer Settings](https://github.com/settings/developers)
+2. Create OAuth App
+3. Authorization callback: `http://localhost:3000/api/auth/callback/github`
+4. Add credentials to `.env`
+
+## 🌐 i18n (Internationalization)
+
+Supported languages:
+- 🇮🇹 Italiano (default)
+- 🇬🇧 English
+
+Add translations in `src/i18n/locales/{locale}.json`
+
+## 📝 Project Structure
+
+```
+src/
+├── app/
+│   └── [locale]/          # i18n routes
+│       ├── (auth)/         # Auth pages
+│       ├── (dashboard)/    # Protected pages
+│       └── api/            # API routes
+├── components/
+│   ├── ui/              # shadcn components
+│   ├── three/           # 3D components
+│   └── forms/           # Form components
+├── lib/                 # Utilities
+├── hooks/               # Custom hooks
+├── schemas/             # Zod schemas
+├── i18n/                # Translations
+└── types/               # TypeScript types
+```
+
+## 🔒 Security Features
+
+- **End-to-End Encryption** - Gifts encrypted client-side before DB storage
+- **Row Level Security** - Supabase RLS policies
+- **OAuth2 Only** - No password storage
+- **HTTPS Required** - Automatic on Vercel
+
+## 💻 Development Commands
+
+```bash
+npm run dev          # Start dev server
+npm run build        # Build for production
+npm run start        # Start production server
+npm run lint         # Run ESLint
+
+# Database
+npm run db:push      # Push schema changes
+npm run db:studio    # Open Prisma Studio
+npm run db:migrate   # Create migration
+npm run db:reset     # Reset database
+```
+
+## 🚀 Deployment
+
+### Vercel (Recommended)
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/MicheleJohn/christmas-tree-pwa)
+
+1. Push to GitHub
+2. Import to Vercel
+3. Add environment variables
+4. Deploy!
+
+### Environment Variables for Production
+
+Ensure all `.env.example` variables are set in Vercel dashboard.
+
+## 📝 License
+
+MIT License - see [LICENSE](LICENSE) file
+
+## 👤 Author
+
+**MicheleJohn**
+- GitHub: [@MicheleJohn](https://github.com/MicheleJohn)
+- Email: m.troisi1995@gmail.com
+
+## 🤝 Contributing
+
+Contributions welcome! Please open an issue first.
+
+---
+
+Made with ❤️ and ☕ for Christmas 2025 🎄
